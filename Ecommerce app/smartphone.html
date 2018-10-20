@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smartphones Shooping</title>
+    <link rel="shortcut icon" href="E:\Ecommerce app\img\icon-tab.ico">
+    <link rel="stylesheet" type="text/css" href="file:///E:/Ecommerce%20app/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body>
+	<div id="header">Bienvenue à notre application</div>
+	<div class="container-top">
+	    	<div class="container-logo-link">
+	    		<a class="logo-link" href="E:\Ecommerce app\index1.html">
+	    			<img class="logo" src="E:\Ecommerce app\img\logo.PNG">
+	    			<span class="shooping"><span class="s">S</span>hooping</span>
+	    		</a>
+	    	</div>
+	    	<div class="container-search">
+	    		<form>
+	    			<input class="field-search" type="text" name="field-search" placeholder="De quoi avez-vous envie aujourd'hui ?">
+	    			<input class="submit-search" type="submit" value="Search">
+	    		</form>
+	    	</div>
+	    	<div class="container-besoin-aide-drop-down">
+	    		<div class="container-besoin-aide">
+	    			<span class="besoin">Besoin</span>
+	    			<span class="aide">D'aide ?</span>
+	    			<i class="arrow-down"></i>
+	    	    </div>
+	    	    <div class="drop-down-content-besoin-aide">
+	    	    	<a href="#">Commandez par téléphone</a>
+	    	    	<a href="#">Questions fréquentes</a>
+	    	    	<a href="#">Délais de livraison</a>
+	    	    	<a href="#">Politique de retour</a>
+	    	    	<a href="#">Garantie</a>
+	    	    	<a href="#">Contactez-nous</a>
+	    	    </div>
+	    	</div>
+	    	<div class="container-login">
+	    		<button class="login-button" onclick="login()">Login</button>
+	    	</div>
+	    	<div class="modal" id="modal">
+	    		<form class="modal-content">
+	    			<div class="container-img-login">
+	    				<span class="close-login" title="Cancel login" onclick="cancelLogin()">&times;</span>
+	    				<img class="img-login" src="E:\Ecommerce app\img\login1.PNG" alt="login">
+	    			</div>
+	    			<div class="container-input-login">
+	    				<label><b>Username</b></label>
+	    				<input class="input-username" type="text" name="Username" placeholder="Entre Username" required>
+	    				<label><b>Password</b></label>
+	    				<input class="input-password" type="Password" name="Password" placeholder="Entre Password" required>
+	    				<input class="submit-login" type="submit" name="Login">
+	    				<label>
+	    					<input type="checkbox" name="remember" checked="checked"> Remember me
+	    				</label>
+	    			</div>
+	    			<div class="container-cancel-forgot">
+	    				<button class="cancel-button" onclick="cancelLogin()">Cancel</button>
+	    				<span class="forgot-password">Forgot <a href="#">password?</a></span>
+	    			</div>
+	    		</form>
+	    	</div>
+	    	<div class="container-panier" onclick="showPanier()">
+	    			<img class="panier-img" src="E:\Ecommerce app\img\panier.PNG">
+	    			<span class="panier-word">Panier</span>
+	    	</div>
+	</div>
+	<div class="top-nav">
+	    <a href="E:\Ecommerce app\index1.html">Acceuil</a>
+	    <a class="active" href="E:\Ecommerce app\smartphone.html">Smartphones</a>
+	    <a href="#">Pc Portable</a>
+	    <a href="#">Livres</a>
+	</div>
+	<div class="page">
+		<div class="main">
+			<div class="aside">
+				<div class="caract">
+					<div onclick="closeOpenMarque()" class="title">
+						Marques
+						<i id="close-marque" class="arrow-up-close"></i>
+						<i id="open-marque" class="arrow-down-open"></i>
+					</div>
+					<div id="content-marque" class="content">
+						<label class="content-detail-check">
+							<span>Apple</span>
+							<span id="marque-apple-quantity"></span>
+							<input type="checkbox" name="check-apple-marque" id="check-marque-apple" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Samsung</span>
+							<span id="marque-samsung-quantity"></span>
+							<input type="checkbox" name="check-samsung-marque" id="check-marque-samsung" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Huawei</span>
+							<span id="marque-huawei-quantity"></span>
+							<input type="checkbox" name="check-huawei-marque" id="check-marque-huawei" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Asus</span>
+							<span id="marque-asus-quantity"></span>
+							<input type="checkbox" name="check-asus-marque" id="check-marque-asus" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Honor</span>
+							<span id="marque-honor-quantity"></span>
+							<input type="checkbox" name="check-honor-marque" id="check-marque-honor" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Sony</span>
+							<span id="marque-sony-quantity"></span>
+							<input type="checkbox" name="check-sony-marque" id="check-marque-sony" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Wiko</span>
+							<span id="marque-wiko-quantity"></span>
+							<input type="checkbox" name="check-wiko-marque" id="check-marque-wiko" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>Htc</span>
+							<span id="marque-htc-quantity"></span>
+							<input type="checkbox" name="check-htc-marque" id="check-marque-htc" onclick="filterPhoneMarque()">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="caract">
+					<div onclick="closeOpenPrix()" class="title">
+						Prix
+						<i id="close-prix" class="arrow-up-close"></i>
+						<i id="open-prix" class="arrow-down-open"></i>
+					</div>
+					<div id="content-prix" class="content">
+						<label class="content-detail-check">
+							<span>0 &euro; à 200 &euro;</span>
+							<span id="prix-0-200-quantity"></span>
+							<input type="checkbox" name="check-0à200-prix" id="check-prix-0-200" onclick="filterPhonePrix()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>200 &euro; à 500 &euro;</span>
+							<span id="prix-200-500-quantity"></span>
+							<input type="checkbox" name="check-200à500-prix" id="check-prix-200-500" onclick="filterPhonePrix()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>500 &euro; à 700 &euro;</span>
+							<span id="prix-500-700-quantity"></span>
+							<input type="checkbox" name="check-500à700-prix" id="check-prix-500-700" onclick="filterPhonePrix()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>700 &euro; ou plus</span>
+							<span id="prix-700-plus-quantity"></span>
+							<input type="checkbox" name="check-700ouplus-prix" id="check-prix-700-plus" onclick="filterPhonePrix()">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="caract">
+					<div onclick="closeOpenRom()" class="title">
+						Stockage (ROM)
+						<i id="close-rom" class="arrow-up-close"></i>
+						<i id="open-rom" class="arrow-down-open"></i>
+					</div>
+					<div id="content-rom" class="content">
+						<label class="content-detail-check">
+							<span>256 Go</span>
+							<span id="rom-256-quantity"></span>
+							<input type="checkbox" name="check-256-rom" id="check-rom-256" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>128 Go</span>
+							<span id="rom-128-quantity"></span>
+							<input type="checkbox" name="check-128-rom" id="check-rom-128" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>64 Go</span>
+							<span id="rom-64-quantity"></span>
+							<input type="checkbox" name="check-64-rom" id="check-rom-64" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>32 Go</span>
+							<span id="rom-32-quantity"></span>
+							<input type="checkbox" name="check-32-rom" id="check-rom-32" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>16 Go</span>
+							<span id="rom-16-quantity"></span>
+							<input type="checkbox" name="check-16-rom" id="check-rom-16" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>8 Go</span>
+							<span id="rom-8-quantity"></span>
+							<input type="checkbox" name="check-8-rom" id="check-rom-8" onclick="filterPhoneRom()">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="caract">
+					<div onclick="closeOpenRam()" class="title">
+						Mémoire (RAM)
+						<i id="close-ram" class="arrow-up-close"></i>
+						<i id="open-ram" class="arrow-down-open"></i>
+					</div>
+					<div id="content-ram" class="content">
+						<label class="content-detail-check">
+							<span>8 Go</span>
+							<span id="ram-8-quantity"></span>
+							<input type="checkbox" name="check-8-ram" id="check-ram-8" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>4 Go</span>
+							<span id="ram-4-quantity"></span>
+							<input type="checkbox" name="check-4-ram" id="check-ram-4" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>3 Go</span>
+							<span id="ram-3-quantity"></span>
+							<input type="checkbox" name="check-3-ram" id="check-ram-3" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>2 Go</span>
+							<span id="ram-2-quantity"></span>
+							<input type="checkbox" name="check-2-ram" id="check-ram-2" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>1.5 Go</span>
+							<span id="ram-1.5-quantity"></span>
+							<input type="checkbox" name="check-1.5-ram" id="check-ram-1.5" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+						<label class="content-detail-check">
+							<span>1 Go</span>
+							<span id="ram-1-quantity"></span>
+							<input type="checkbox" name="check-1-ram" id="check-ram-1" onclick="filterPhoneRam()">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</div>
+			<div class="main-content">
+				<div id="filter-smartphone-choix">
+					<ul id="list-filter-smartphone-result">
+						<li id="li-choix-apple-marque">
+							Marque Apple
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(1)">
+						</li>
+						<li id="li-choix-samsung-marque">
+							Marque Samsung
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(2)">
+						</li>
+						<li id="li-choix-huawei-marque">
+							Marque Huawei
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(3)">
+						</li>
+						<li id="li-choix-asus-marque">
+							Marque Asus
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(4)">
+						</li>
+						<li id="li-choix-honor-marque">
+							Marque Honor
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(5)">
+						</li>
+						<li id="li-choix-sony-marque">
+							Marque Sony
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(6)">
+						</li>
+						<li id="li-choix-wiko-marque">
+							Marque Wiko
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(7)">
+						</li>
+						<li id="li-choix-htc-marque">
+							Marque Htc
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(8)">
+						</li>
+						<li id="li-choix-0-200-prix">
+							0 &euro; à 200 &euro;
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(11)">
+						</li>
+						<li id="li-choix-200-500-prix">
+							200 &euro; à 500 &euro;
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(12)">
+						</li>
+						<li id="li-choix-500-700-prix">
+							500 &euro; à 700 &euro;
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(13)">
+						</li>
+						<li id="li-choix-700-plus-prix">
+							700 &euro; ou plus
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(14)">
+						</li>
+						<li id="li-choix-256-rom">
+							256 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(21)">
+						</li>
+						<li id="li-choix-128-rom">
+							128 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(22)">
+						</li>
+						<li id="li-choix-64-rom">
+							64 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(23)">
+						</li>
+						<li id="li-choix-32-rom">
+							32 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(24)">
+						</li>
+						<li id="li-choix-16-rom">
+							16 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(25)">
+						</li>
+						<li id="li-choix-8-rom">
+							8 Go ROM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(26)">
+						</li>
+						<li id="li-choix-8-ram">
+							8 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(31)">
+						</li>
+						<li id="li-choix-4-ram">
+							4 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(32)">
+						</li>
+						<li id="li-choix-3-ram">
+							3 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(33)">
+						</li>
+						<li id="li-choix-2-ram">
+							2 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(34)">
+						</li>
+						<li id="li-choix-1-demi-ram">
+							1.5 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(35)">
+						</li>
+						<li id="li-choix-1-ram">
+							1 Go RAM
+							<img src="E:\Ecommerce app\img\delete-icon.PNG" onclick="removeChoixFilter(36)">
+						</li>
+						<li id="li-choix-tout-supprimer" onclick="removeChoixFilter(40)">
+							Tout supprimer
+							<img src="E:\Ecommerce app\img\delete-all-icon.GIF">
+						</li>
+					</ul>
+				</div>
+				<div class="container-item-field">
+				<div class="container-item marque-samsung prix-700-plus rom-64 ram-4 selected-marque selected-prix selected-rom selected-ram">
+						<a href="#" title="galaxy-s9">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="galaxyS9ImgHover()" onmouseout="galaxyS9ImgOut()">
+									<img id="s9-first" class="phone-first" src="E:\Ecommerce app\img\galaxy-s9.PNG" alt="galaxy-s9">
+									<img id="s9-second" class="phone-second" src="E:\Ecommerce app\img\galaxy-s9-second.PNG" alt="galaxy-s9">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item s9-dot-first dot-active"></span>
+									<span class="dot-item s9-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Samsung</span>
+									<span>- Galaxy&nbsp;S9 - Bleu Corail - 64&nbsp;Go&nbsp;ROM- 4&nbsp;Go&nbsp;RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										849 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanierSamsungS9()">ajouter au panier</button>
+				</div>
+				<div class="container-item marque-samsung prix-500-700 rom-64 ram-4 selected-marque selected-prix selected-rom selected-ram">
+						<a href="#" title="galaxy-s8">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="galaxyS8ImgHover()" onmouseout="galaxyS8ImgOut()">
+									<img id="s8-first" class="phone-first" src="E:\Ecommerce app\img\galaxy-s8.JPG" alt="galaxy-s8">
+									<img id="s8-second" class="phone-second" src="E:\Ecommerce app\img\galaxy-s8-second.JPG" alt="galaxy-s8">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item s8-dot-first dot-active"></span>
+									<span class="dot-item s8-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Samsung</span>
+									<span>- Galaxy S8 - Noir Carbone - 64&nbsp;Go ROM- 4&nbsp;Go RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										620 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanierSamsungS8()">ajouter au panier</button>
+				</div>
+				<div class="container-item marque-samsung prix-200-500 rom-32 ram-4 selected-marque selected-prix selected-rom selected-ram">
+						<a href="#" title="galaxy s7 edge">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="galaxyS7ImgHover()" onmouseout="galaxyS7ImgOut()">
+									<img id="s7-first" class="phone-first" src="E:\Ecommerce app\img\galaxy-s7.JPG" alt="galaxy-s7">
+									<img id="s7-second" class="phone-second" src="E:\Ecommerce app\img\galaxy-s7-second.PNG" alt="galaxy-s7">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item s7-dot-first dot-active"></span>
+									<span class="dot-item s7-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Samsung</span>
+									<span>- Galaxy S7 edge - Noir - 32&nbsp;Go ROM- 4&nbsp;Go RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										495 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanier()">ajouter au panier</button>
+				</div>
+				<div class="container-item marque-samsung prix-0-200 rom-16 ram-3 selected-marque selected-prix selected-rom selected-ram">
+						<a href="#" title="galaxy j7">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="galaxyJ7ImgHover()" onmouseout="galaxyJ7ImgOut()">
+									<img id="j7-first" class="phone-first" src="E:\Ecommerce app\img\galaxy-j7.JPG" alt="galaxy-j7">
+									<img id="j7-second" class="phone-second" src="E:\Ecommerce app\img\galaxy-j7-second.JPG" alt="galaxy-j7">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item j7-dot-first dot-active"></span>
+									<span class="dot-item j7-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Samsung</span>
+									<span>- Galaxy J7 2017 - Noir - 16&nbsp;Go ROM- 3&nbsp;Go RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										198 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanier()">ajouter au panier</button>
+				</div>
+				<div class="container-item marque-apple prix-700-plus rom-256 ram-3 selected-marque selected-prix selected-rom selected-ram">
+						<a href="E:\Ecommerce app\item-iphone-x.html" title="Iphone X">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="iphoneXImgHover()" onmouseout="iphoneXImgOut()">
+									<img id="iphone-x-first" class="phone-first" src="E:\Ecommerce app\img\iphone-x.JPG" alt="iphone-x">
+									<img id="iphone-x-second" class="phone-second" src="E:\Ecommerce app\img\iphone-x-second.JPG" alt="iphone-x">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item iphone-x-dot-first dot-active"></span>
+									<span class="dot-item iphone-x-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Apple</span>
+									<span>- Iphone X - Gris Sideral - 256&nbsp;Go ROM- 3&nbsp;Go RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										1229 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanierIphoneX()">ajouter au panier</button>
+				</div>
+				<div class="container-item marque-apple prix-500-700 rom-32 ram-2 selected-marque selected-prix selected-rom selected-ram">
+						<a href="#" title="Iphone 7">
+							<div class="item-col1">
+								<div class="item-img" onmouseover="iphone7ImgHover()" onmouseout="iphone7ImgOut()">
+									<img id="iphone-7-first" class="phone-first" src="E:\Ecommerce app\img\iphone-7.JPG" alt="iphone-7">
+									<img id="iphone-7-second" class="phone-second" src="E:\Ecommerce app\img\iphone-7-second.JPG" alt="iphone-7">
+								</div>
+								<div class="nav-item-img">
+									<span class="dot-item iphone-7-dot-first dot-active"></span>
+									<span class="dot-item iphone-7-dot-second"></span>
+								</div>
+							</div>
+							<div class="item-col2">
+								<div class="availability">
+									Plus que 
+									<span class="number">4</span>
+									 articles
+								</div>
+								<div class="summary">
+									<span class="brand">Apple</span>
+									<span>- Iphone 7 - Argent - 32&nbsp;Go ROM- 2&nbsp;Go RAM</span>
+								</div>
+							</div>
+							<div class="item-col3">
+								<div class="container-item-prix">
+									<span class="from-prix">A partir de</span>
+									<div class="item-prix">
+										522 &euro;
+									</div>
+								</div>
+								<div class="container-delevry">
+									<img src="E:\Ecommerce app\img\delevry-icon.PNG" class="delevry-icon">
+									<span class="label-delevry">Livraison gratuite</span>
+								</div>
+							</div>
+						</a>
+						<button class="button-add-to-panier-smartphone-page" type="button" onclick="ajouterAuPanier()">ajouter au panier</button>
+				</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-panier">
+		<div class="panier-content">
+			<div class="panier-etapes">
+				<span class="panier-1-etape" onclick="returnToPanier()">
+				    <span class="panier-etape1-icon">1</span>
+				    <span class="panier-etape-panier"> PANIER</span>
+				</span>
+				<span class="panier-2-etape">
+				    <span class="panier-etape2-icon">2</span>
+				    <span class="panier-etape-livraison"> LIVRAISON &amp; PAIEMENT</span>
+				</span>
+				<img id="back-to-page" src="E:\Ecommerce app\img\delete-all-icon.GIF" onclick="hidePanier()">
+			</div>
+			<div id="mon-panier-vide">
+				<h2 id="mon-panier-vide-title">
+					Mon panier
+				</h2>
+				<div id="container-message-vide-panier">
+					<div id="message-vide-panier">Votre panier est vide !</div>
+					<div>Avez-vous bien regardé toutes nos irrésistibles promotions? Cliquez sur</div>
+					<div>"Continuer ses achats" pour en être certain !</div>
+					<button id="button-continuer-achat" onclick="hidePanier()">Continuer ses achats</button>
+				</div>
+			</div>
+			<div id="container-item-added-panier">
+				<div id="item-added-to-panier">
+					<div id="item-added-to-panier-title">Ma commande</div>
+				</div>
+				<div id="validation-identification">
+					<div id="item-added-to-panier-title" style="margin-bottom: 7px;">Ma commande</div>
+					<div id="item-added-to-panier-identifier-message">S'identifier ou Créer son compte</div>
+					<form id="form-validation-identification">
+						<div>
+							<label class="label-checkbox-validation-identification" onclick="createCompte(1)">
+								<i id="checkbox-s'identifier" class="checkbox-validation-identification active-choice"></i>
+								<span>S'identifier</span>
+							</label>
+							<label class="label-checkbox-validation-identification" onclick="createCompte(2)">
+								<i id="checkbox-créer-compte" class="checkbox-validation-identification xx-choice"></i>
+								<span>Créer un compte</span>
+							</label>
+						</div>
+						<div id="input-existing-compte">
+							<input type="text" name="email" class="input-form-validation-identification" placeholder="Mon E-mail*">
+							<input type="password" name="password" class="input-form-validation-identification" placeholder="Mon mot de passe*">
+						</div>
+						<div id="forget-password-validation-identification">
+							<a href="#">
+								J'ai oublié mon mot de passe
+							</a>
+						</div>
+						<div id="input-new-compte">
+							<input type="text" name="email" class="input-form-validation-identification" placeholder="Nouveau E-mail*">
+							<input type="password" name="password" class="input-form-validation-identification" placeholder="Mot de passe*">
+						</div>
+						<input class="submit-form-validation-identification" type="button" value="Je valide">
+					</form>
+				</div>
+				<div id="ticket-to-pay">
+					<div id="total-ma-commande">Total de ma commande</div>
+					<div id="result-item-added-panier"></div>
+					<div id="ticket-total-to-pay">
+						<span>Total à payer</span>
+						<span id="ticket-total-to-pay-montant"><span id="ticket-total-to-pay-montant-value"></span> &euro;</span>
+					</div>
+					<button id="panier-validation-button" onclick="validerPanier()">Je valide mon Panier</button>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="container-footer">
+		<p class="footer">
+			<a href="#">Conditions of Use</a>
+			&copy; 1996-2018
+		</p>
+	</div>
+	<script src="E:\Ecommerce app\main.js" type="text/javascript"></script>
+	<script type="text/javascript">
+		countSmartphoneItem();
+        function countSmartphoneItem() {
+	        var marqueApple = document.getElementsByClassName("marque-apple").length;
+	        var marqueSamsung = document.getElementsByClassName("marque-samsung").length;
+	        var marqueHuawei = document.getElementsByClassName("marque-huawei").length;
+	        var marqueAsus = document.getElementsByClassName("marque-asus").length;
+	        var marqueHonor = document.getElementsByClassName("marque-honor").length;
+	        var marqueSony = document.getElementsByClassName("marque-sony").length;
+	        var marqueWiko = document.getElementsByClassName("marque-wiko").length;
+	        var marqueHtc = document.getElementsByClassName("marque-htc").length;
+	        var prix0à200 = document.getElementsByClassName("prix-0-200").length;
+	        var prix200à500 = document.getElementsByClassName("prix-200-500").length;
+	        var prix500à700 = document.getElementsByClassName("prix-500-700").length;
+	        var prix700àplus = document.getElementsByClassName("prix-700-plus").length;
+	        var rom256 = document.getElementsByClassName("rom-256").length;
+	        var rom128 = document.getElementsByClassName("rom-128").length;
+	        var rom64 = document.getElementsByClassName("rom-64").length;
+	        var rom32 = document.getElementsByClassName("rom-32").length;
+	        var rom16 = document.getElementsByClassName("rom-16").length;
+	        var rom8 = document.getElementsByClassName("rom-8").length;
+	        var ram8 = document.getElementsByClassName("ram-8").length;
+	        var ram4 = document.getElementsByClassName("ram-4").length;
+	        var ram3 = document.getElementsByClassName("ram-3").length;
+	        var ram2 = document.getElementsByClassName("ram-2").length;
+	        var ram1demi = document.getElementsByClassName("ram-1.5").length;
+	        var ram1 = document.getElementsByClassName("ram-1").length;
+	        document.getElementById("marque-apple-quantity").innerHTML = "(" + marqueApple + ")";
+	        document.getElementById("marque-samsung-quantity").innerHTML = "(" + marqueSamsung + ")";
+	        document.getElementById("marque-huawei-quantity").innerHTML = "(" + marqueHuawei + ")";
+	        document.getElementById("marque-asus-quantity").innerHTML = "(" + marqueAsus + ")";
+	        document.getElementById("marque-honor-quantity").innerHTML = "(" + marqueHonor + ")";
+	        document.getElementById("marque-sony-quantity").innerHTML = "(" + marqueSony + ")";
+	        document.getElementById("marque-wiko-quantity").innerHTML = "(" + marqueWiko + ")";
+	        document.getElementById("marque-htc-quantity").innerHTML = "(" + marqueHtc + ")";
+	        document.getElementById("prix-0-200-quantity").innerHTML = "(" + prix0à200 + ")";
+	        document.getElementById("prix-200-500-quantity").innerHTML = "(" + prix200à500 + ")";
+	        document.getElementById("prix-500-700-quantity").innerHTML = "(" + prix500à700 + ")";
+	        document.getElementById("prix-700-plus-quantity").innerHTML = "(" + prix700àplus + ")";
+	        document.getElementById("rom-256-quantity").innerHTML = "(" + rom256 + ")";
+	        document.getElementById("rom-128-quantity").innerHTML = "(" + rom128 + ")";
+	        document.getElementById("rom-64-quantity").innerHTML = "(" + rom64 + ")";
+	        document.getElementById("rom-32-quantity").innerHTML = "(" + rom32 + ")";
+	        document.getElementById("rom-16-quantity").innerHTML = "(" + rom16 + ")";
+	        document.getElementById("rom-8-quantity").innerHTML = "(" + rom8 + ")";
+	        document.getElementById("ram-8-quantity").innerHTML = "(" + ram8 + ")";
+	        document.getElementById("ram-4-quantity").innerHTML = "(" + ram4 + ")";
+	        document.getElementById("ram-3-quantity").innerHTML = "(" + ram3 + ")";
+	        document.getElementById("ram-2-quantity").innerHTML = "(" + ram2 + ")";
+	        document.getElementById("ram-1.5-quantity").innerHTML = "(" + ram1demi + ")";
+	        document.getElementById("ram-1-quantity").innerHTML = "(" + ram1 + ")";
+        }
+	</script>
+</body>
+</html>
